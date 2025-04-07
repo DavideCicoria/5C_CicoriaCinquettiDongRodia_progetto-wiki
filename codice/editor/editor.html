@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>editor_page</title>
+</head>
+<body>
+    <div id="admin" class="page">
+        <div id="loginContainer"></div>
+        <div class="private page-header theme-bg-dark py-5 text-center position-relative">
+            <div class="theme-bg-shapes-right"></div>
+            <div class="theme-bg-shapes-left"></div>
+            <div class="container">
+                <h1 class="page-heading single-col-max mx-auto">Administration</h1>
+                <div class="page-intro single-col-max mx-auto">Manage all the wiki articles.</div>	    
+            </div>
+        </div>
+       <div class="private page-content">
+            <div class="container my-4">
+                <h2>Instructions</h2>
+                <ul>
+                    <li><p>Manage all your contents inside one page.</p></li>
+                    <li><p>Use the edit button to change all the informations about the article.</p></li>
+                    <li><p>Use the delete button to remove permanently an article.</p></li>
+                </ul>
+            </div>
+            <div class="container">
+                <div class="table-responsive my-4">
+                    <h2>Places</h2>
+                    <div id="adm-tab"></div>
+                </div><!--//table-responsive-->
+            </div>
+        </div><!--//page-content-->     
+    </div>
+    <div id="articles"></div>
+    <script type="module" src="index.js"></script>
+</body>
+</html>
