@@ -4,12 +4,13 @@ export const generateAdminTable = (parentElement) => { // parentElement,pubsub
     let callbacks = {} ;
 
     const tableObject = {
-        build: function(inputHeader, inputData, callbackUpdate, callbackDownload, downloadOptions) {
+        build: function(inputHeader, inputData, callbackUpdate, callbackDownload, callbackDelete) {
             header = inputHeader;
             data = inputData;
             callbacks[update]=callbackUpdate;
             callbacks[download]=callbackDownload;
-            this.setData(callbacks.download(downloadOptions))
+            callbacks[remove]=callbackDelete;
+            this.setData(callbacks.download())
             /*
             pubsub.subscribe("get-remote-data",(remoteData)=>{
                 this.setData(remoteData);
@@ -41,17 +42,17 @@ export const generateAdminTable = (parentElement) => { // parentElement,pubsub
 
             document.querySelectorAll(".editButton").forEach( (button,index) => {
                 button.onclick = () => {
+                    callbacks.update()
+                    this.setData(callbacks.download())
                     //impostare i comandi server prima di proseguire
                 };
             });
 
-            document.querySelectorAll(".deleteButton").forEach(b => {
-                b.onclick = () => {
-                    const wikiTitle = b.id.replace("delete-", "");
-                    
-                    delete data[wikiTitle];
-                    
-                    pubsub.publish("el-deleted", data);
+            document.querySelectorAll(".deleteButton").forEach((button,index) => {
+                button.onclick = () => {
+                    callbacks.remove(index)
+                    this.setData(callbacks.download())
+                    //pubsub.publish("el-deleted", data);
                 };
             });
         },
