@@ -13,7 +13,7 @@
 <div class="container">
     <div class="row">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <button class="button marginSide">
+            <button class="button marginSide" onclick="location.href='index.php'>
                 <a href="">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 1024 1024"
                          stroke-width="0" fill="currentColor" stroke="currentColor" class="icon">
@@ -24,26 +24,6 @@
                 </a>
                 <span class="navText">Home</span>
             </button>
-
-            <div id="navButtonsContainer">
-                <!-- Bottone trigger modal -->
-                <button type="button" class="loginButton <?php echo isset($_SESSION['logged_in']) ? 'hidden' : ''; ?>" data-bs-toggle="modal" data-bs-target="#loginModal">
-                    Log in
-                    <div class="arrow-wrapper">
-                        <div class="arrow"></div>
-                    </div>
-                </button>
-
-                <!-- Bottone personal area -->
-                <a href="personalArea.php">
-                    <button type="button" id="personalAreaButton" class="loginButton <?php echo isset($_SESSION['logged_in']) && $_SESSION['role'] == 'admin' ? '' : 'hidden'; ?>">
-                        Area Personale
-                        <div class="arrow-wrapper">
-                            <div class="arrow"></div>
-                        </div>
-                    </button>
-                </a>
-            </div>
         </nav>
     </div>
 
