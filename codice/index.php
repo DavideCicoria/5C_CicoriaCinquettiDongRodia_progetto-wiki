@@ -1,4 +1,5 @@
 <?php
+session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -23,8 +24,8 @@ if ($conn->connect_error) {
 <div class="container">
     <div class="row">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <button class="button marginSide" onclick="location.href='#home'">
-                <a href="#home">
+            <button class="button marginSide">
+                <a href="">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 1024 1024"
                          stroke-width="0" fill="currentColor" stroke="currentColor" class="icon">
                         <path
@@ -35,17 +36,19 @@ if ($conn->connect_error) {
                 <span class="navText">Home</span>
             </button>
 
-            <!-- Button trigger modal -->
             <div id="navButtonsContainer">
-                <button type="button" class="loginButton" data-bs-toggle="modal" data-bs-target="#loginModal">
+                <!-- Bottone trigger modal -->
+                <button type="button" class="loginButton <?php echo isset($_SESSION['logged_in']) ? 'hidden' : ''; ?>" data-bs-toggle="modal" data-bs-target="#loginModal">
                     Log in
                     <div class="arrow-wrapper">
                         <div class="arrow"></div>
                     </div>
                 </button>
-                <a href="#admin">
-                    <button type="button" id="adminPage" class="loginButton hidden">
-                        Manage account
+
+                <!-- Bottone personal area -->
+                <a href="personalArea.php">
+                    <button type="button" id="personalAreaButton" class="loginButton <?php echo isset($_SESSION['logged_in']) && $_SESSION['role'] == 'admin' ? '' : 'hidden'; ?>">
+                        Area Personale
                         <div class="arrow-wrapper">
                             <div class="arrow"></div>
                         </div>
@@ -81,6 +84,7 @@ if ($conn->connect_error) {
                                 </form>
                             </div>
                             <div id="loginModalFooter" class="modal-footer">
+                                Non sei registrato? <a href="register.php">Registrati qua</a>
                                 <input type="button" id="cancelButtonLogin" type="button" class="btn btn-danger" data-bs-dismiss="modal" value="Chiudi" />
                                 <input type="button" id="submitButtonLogin" type="button" class="btn btn-success" value="Conferma" />
                             </div>
