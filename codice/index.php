@@ -82,9 +82,10 @@ if ($conn->connect_error) {
                                         </div>
                                     </div>
                                 </form>
+
+                                <span class="margin-sm">Non sei registrato? <a href="register.php">Registrati qua</a></span>
                             </div>
                             <div id="loginModalFooter" class="modal-footer">
-                                Non sei registrato? <a href="register.php">Registrati qua</a>
                                 <input type="button" id="cancelButtonLogin" type="button" class="btn btn-danger" data-bs-dismiss="modal" value="Chiudi" />
                                 <input type="button" id="submitButtonLogin" type="button" class="btn btn-success" value="Conferma" />
                             </div>
