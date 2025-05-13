@@ -66,8 +66,8 @@
                     <label for="ruolo"></label>
                     <select class="form-select" aria-label="Default select example" name="ruolo" id="ruolo">
                         <option value="utente">Utente</option>
+                        <option value="writer">Writer</option>
                         <option value="approver">Approver</option>
-                        <option value="admin">Admin</option>
                     </select>
                 </div>
 
